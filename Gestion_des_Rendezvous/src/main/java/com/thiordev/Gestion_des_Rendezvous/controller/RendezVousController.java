@@ -23,6 +23,7 @@ import java.util.List;
 @RequestMapping("/api/rendezvous")
 @RequiredArgsConstructor
 @Slf4j
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.PATCH, RequestMethod.DELETE, RequestMethod.OPTIONS})
 public class RendezVousController {
 
     private final RendezVousService rendezVousService;
