@@ -1,8 +1,12 @@
-[build]
-builder = "maven"
-buildCommand = "mvn clean package -DskipTests"
+# railway.toml
+
+# Comme tu as un Dockerfile, Railway utilisera automatiquement Docker pour le build.
+# Pas besoin de spécifier builder ou buildCommand.
 
 [deploy]
+# Le JAR a déjà été renommé en app.jar dans le Dockerfile
 startCommand = "java -jar app.jar"
+
+# Endpoint pour vérifier que l'application fonctionne
 healthcheckPath = "/"
 healthcheckTimeout = 100
