@@ -1,25 +1,21 @@
-/**
- * Configuration globale de l'application
- */
 
 const CONFIG = {
-    // URL de base de l'API
-    API_BASE_URL: 'http://localhost:8080/api',
+    // Détection automatique de l'environnement
+    API_BASE_URL: window.location.hostname === 'localhost'
+        ? 'http://localhost:8080/api'
+        : `${window.location.origin}/api`,
 
-    // Endpoints
     ENDPOINTS: {
         PATIENTS: '/patients',
         MEDECINS: '/medecins',
         RENDEZVOUS: '/rendezvous'
     },
 
-    // Configuration de l'application
     APP: {
         NAME: 'Gestion Rendez-vous Médicaux',
         VERSION: '1.0.0'
     },
 
-    // Messages
     MESSAGES: {
         SUCCESS: {
             CREATE: 'Élément créé avec succès',
@@ -34,5 +30,4 @@ const CONFIG = {
     }
 };
 
-// Rendre CONFIG accessible globalement
 window.CONFIG = CONFIG;
