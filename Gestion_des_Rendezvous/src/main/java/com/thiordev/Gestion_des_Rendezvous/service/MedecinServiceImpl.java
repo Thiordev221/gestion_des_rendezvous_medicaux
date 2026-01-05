@@ -60,7 +60,7 @@ public class MedecinServiceImpl implements MedecinService {
         Medecin medecin = medecinRepository.findById(id)
                 .orElseThrow(()-> new RessourceNotFoundException("Medecin", "id", id));
 
-        if(medecinRepository.existsByEmail(requestDto.getEmail()) && requestDto.getEmail().equals(medecin.getEmail())) {
+        if(medecinRepository.existsByEmail(requestDto.getEmail()) && !requestDto.getEmail().equals(medecin.getEmail())) {
             log.error("L'email est dèja utilisé par un autre medecin");
             throw new ConflictException("Cet email est dèja utilisé par un autre medecin !");
         }
