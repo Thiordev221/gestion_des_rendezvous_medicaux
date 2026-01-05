@@ -1,0 +1,31 @@
+services:
+  postgres:
+    image: postgres
+    container_name: ges_rdv_container
+    restart: always
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: medical_reservation
+      PGDATA: /var/lib/postgresql/data/rendezvous
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/rendezvous
+    ports:
+      - "5432:5432"
+
+  app:
+    container_name: rendezvous_app_container
+    image: gestion_des_rendezvous
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/medical_reservation
+      SPRING_DATASOURCE_USERNAME: ${DB_USER}
+      SPRING_DATASOURCE_PASSWORD: ${DB_PASSWORD}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+volumes:
+  postgres_data:

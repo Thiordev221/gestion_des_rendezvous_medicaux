@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Gestion Rendez-vous Médicaux</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">
+            <i class="bi bi-hospital me-2"></i>
+            Gestion RDV Médicaux
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="index.html">
+                        <i class="bi bi-house-door me-1"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/patients/patients.html">
+                        <i class="bi bi-people me-1"></i> Patients
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/medecins/medecins.html">
+                        <i class="bi bi-person-badge me-1"></i> Médecins
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pages/rendezvous/rendezvous.html">
+                        <i class="bi bi-calendar-check me-1"></i> Rendez-vous
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="main-container">
+    <!-- Page Header -->
+    <div class="page-header fade-in">
+        <h1 class="page-title">
+            <i class="bi bi-speedometer2 me-2"></i>
+            Tableau de bord
+        </h1>
+        <p class="text-muted mb-0">Vue d'ensemble de l'activité</p>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row mb-4">
+        <!-- Total Patients -->
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card stat-card card-primary fade-in">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="stat-label text-white">Total Patients</p>
+                            <h2 class="stat-value" id="total-patients">
+                                <span class="spinner-border spinner-border-sm"></span>
+                            </h2>
+                        </div>
+                        <div class="stat-icon bg-white bg-opacity-25">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Total Médecins -->
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card stat-card card-success fade-in" style="animation-delay: 0.1s">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="stat-label">Total Médecins</p>
+                            <h2 class="stat-value" id="total-medecins">
+                                <span class="spinner-border spinner-border-sm"></span>
+                            </h2>
+                        </div>
+                        <div class="stat-icon bg-white bg-opacity-25">
+                            <i class="bi bi-person-badge-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RDV En Attente -->
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card stat-card card-warning fade-in" style="animation-delay: 0.2s">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="stat-label">RDV En Attente</p>
+                            <h2 class="stat-value" id="rdv-en-attente">
+                                <span class="spinner-border spinner-border-sm"></span>
+                            </h2>
+                        </div>
+                        <div class="stat-icon bg-white bg-opacity-25">
+                            <i class="bi bi-clock-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RDV Confirmés -->
+        <div class="col-lg-3 col-md-6 mb-4">
+            <div class="card stat-card card-info fade-in" style="animation-delay: 0.3s">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="stat-label">RDV Confirmés</p>
+                            <h2 class="stat-value" id="rdv-confirmes">
+                                <span class="spinner-border spinner-border-sm"></span>
+                            </h2>
+                        </div>
+                        <div class="stat-icon bg-white bg-opacity-25">
+                            <i class="bi bi-check-circle-fill"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Prochains rendez-vous -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card fade-in" style="animation-delay: 0.4s">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-calendar-event me-2"></i>
+                        Prochains rendez-vous
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div id="upcoming-rendezvous">
+                        <!-- Chargement -->
+                        <div class="text-center py-5">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="visually-hidden">Chargement...</span>
+                            </div>
+                            <p class="mt-2 text-muted">Chargement des rendez-vous...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- App Scripts -->
+<script src="js/config.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/api.js"></script>
+<script src="js/dashbord.js"></script>
+</body>
+</html>

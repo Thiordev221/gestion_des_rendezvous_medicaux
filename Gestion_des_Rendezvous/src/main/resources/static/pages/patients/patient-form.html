@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire Patient - Gestion Rendez-vous Médicaux</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../style/style.css">
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="../../index.html">
+            <i class="bi bi-hospital me-2"></i>
+            Gestion RDV Médicaux
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../../index.html">
+                        <i class="bi bi-house-door me-1"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="patients.html">
+                        <i class="bi bi-people me-1"></i> Patients
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../medecins/medecins.html">
+                        <i class="bi bi-person-badge me-1"></i> Médecins
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../rendezvous/rendezvous.html">
+                        <i class="bi bi-calendar-check me-1"></i> Rendez-vous
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="main-container">
+    <!-- Page Header -->
+    <div class="page-header fade-in">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="page-title">
+                    <i class="bi bi-person-plus me-2"></i>
+                    <span id="form-title">Nouveau Patient</span>
+                </h1>
+                <p class="text-muted mb-0">Remplissez le formulaire ci-dessous</p>
+            </div>
+            <a href="patients.html" class="btn btn-secondary">
+                <i class="bi bi-arrow-left me-2"></i>
+                Retour
+            </a>
+        </div>
+    </div>
+
+    <!-- Formulaire -->
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card fade-in" style="animation-delay: 0.1s">
+                <div class="card-body p-4">
+                    <form id="patient-form" novalidate>
+                        <input type="hidden" id="patient-id">
+
+                        <!-- Nom -->
+                        <div class="mb-3">
+                            <label for="nom" class="form-label">
+                                <i class="bi bi-person me-1"></i>
+                                Nom <span class="text-danger">*</span>
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="nom"
+                                   name="nom"
+                                   required
+                                   minlength="2"
+                                   maxlength="50">
+                            <div class="invalid-feedback">
+                                Le nom est obligatoire (2-50 caractères)
+                            </div>
+                        </div>
+
+                        <!-- Prénom -->
+                        <div class="mb-3">
+                            <label for="prenom" class="form-label">
+                                <i class="bi bi-person me-1"></i>
+                                Prénom <span class="text-danger">*</span>
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="prenom"
+                                   name="prenom"
+                                   required
+                                   minlength="2"
+                                   maxlength="50">
+                            <div class="invalid-feedback">
+                                Le prénom est obligatoire (2-50 caractères)
+                            </div>
+                        </div>
+
+                        <!-- Date de naissance -->
+                        <div class="mb-3">
+                            <label for="dateNaissance" class="form-label">
+                                <i class="bi bi-calendar me-1"></i>
+                                Date de naissance <span class="text-danger">*</span>
+                            </label>
+                            <input type="date"
+                                   class="form-control"
+                                   id="dateNaissance"
+                                   name="dateNaissance"
+                                   required>
+                            <div class="invalid-feedback">
+                                La date de naissance est obligatoire
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">
+                                <i class="bi bi-envelope me-1"></i>
+                                Email <span class="text-danger">*</span>
+                            </label>
+                            <input type="email"
+                                   class="form-control"
+                                   id="email"
+                                   name="email"
+                                   required
+                                   maxlength="100">
+                            <div class="invalid-feedback">
+                                Un email valide est obligatoire
+                            </div>
+                        </div>
+
+                        <!-- Téléphone -->
+                        <div class="mb-3">
+                            <label for="telephone" class="form-label">
+                                <i class="bi bi-telephone me-1"></i>
+                                Téléphone <span class="text-danger">*</span>
+                            </label>
+                            <input type="tel"
+                                   class="form-control"
+                                   id="telephone"
+                                   name="telephone"
+                                   placeholder="+221771234567 ou 771234567"
+                                   required
+                                   maxlength="20">
+                            <div class="invalid-feedback">
+                                Le téléphone est obligatoire
+                            </div>
+                        </div>
+
+                        <!-- Adresse -->
+                        <div class="mb-3">
+                            <label for="adresse" class="form-label">
+                                <i class="bi bi-geo-alt me-1"></i>
+                                Adresse
+                            </label>
+                            <textarea class="form-control"
+                                      id="adresse"
+                                      name="adresse"
+                                      rows="2"
+                                      maxlength="200"></textarea>
+                            <small class="text-muted">Optionnel</small>
+                        </div>
+
+                        <!-- Numéro de sécurité sociale -->
+                        <div class="mb-4">
+                            <label for="numeroSecuriteSociale" class="form-label">
+                                <i class="bi bi-card-text me-1"></i>
+                                Numéro de sécurité sociale
+                            </label>
+                            <input type="text"
+                                   class="form-control"
+                                   id="numeroSecuriteSociale"
+                                   name="numeroSecuriteSociale"
+                                   maxlength="15">
+                            <small class="text-muted">Optionnel</small>
+                        </div>
+
+                        <!-- Boutons -->
+                        <div class="d-flex justify-content-between">
+                            <a href="patients.html" class="btn btn-secondary">
+                                <i class="bi bi-x-circle me-2"></i>
+                                Annuler
+                            </a>
+                            <button type="submit" class="btn btn-primary" id="submit-btn">
+                                <i class="bi bi-check-circle me-2"></i>
+                                <span id="submit-text">Enregistrer</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Container -->
+<div id="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Bootstrap 5 JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- App Scripts -->
+<script src="../../js/config.js"></script>
+<script src="../../js/utils.js"></script>
+<script src="../../js/api.js"></script>
+<script src="../../js/patients/patient-form.js"></script>
+</body>
+</html>
