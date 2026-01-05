@@ -40,6 +40,7 @@ public class CorsConfig {
                 "http://localhost:[*]"
         ));
 
+        //Les méthodes permises
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(Arrays.asList(
                 "Authorization",
