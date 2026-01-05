@@ -35,15 +35,21 @@ public class CorsConfig {
         CorsConfiguration configuration = new CorsConfiguration();
 
         // Autoriser votre domaine Railway et localhost pour le développement
-        configuration.setAllowedOrigins(Arrays.asList(
-                "https://senafiyahrdv.up.railway.app",
-                "http://localhost:3000",
-                "http://localhost:5173" // Si vous utilisez Vite
+        configuration.setAllowedOriginPatterns(Arrays.asList(
+                "https://*.up.railway.app",
+                "http://localhost:[*]"
         ));
 
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With"));
+        configuration.setAllowedHeaders(Arrays.asList(
+                "Authorization",
+                "Content-Type",
+                "X-Requested-With",
+                "Accept",
+                "Origin"
+        ));
         configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L); // Cache la réponse CORS pour 1 heure
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
