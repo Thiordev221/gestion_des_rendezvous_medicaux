@@ -6,7 +6,6 @@ Application web complète de gestion de rendez-vous médicaux développée avec 
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2-brightgreen.svg)](https://spring.io/projects/spring-boot)
 [![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14-blue.svg)](https://www.postgresql.org/)
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5.3-purple.svg)](https://getbootstrap.com/)
-[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## 📋 Table des matières
 
@@ -20,7 +19,6 @@ Application web complète de gestion de rendez-vous médicaux développée avec 
 - [Tests](#-tests)
 - [Déploiement](#-déploiement)
 - [API Documentation](#-api-documentation)
-- [Screenshots](#-screenshots)
 - [Auteur](#-auteur)
 
 ---
