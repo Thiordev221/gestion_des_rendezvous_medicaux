@@ -1,13 +1,19 @@
 package com.thiordev.Gestion_des_Rendezvous.mapper;
 
+import java.util.List;
+
+import org.mapstruct.BeanMapping;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.mapstruct.ReportingPolicy;
+
 import com.thiordev.Gestion_des_Rendezvous.dto.request.RendezVousRequestDto;
 import com.thiordev.Gestion_des_Rendezvous.dto.response.RendezVousResponseDto;
 import com.thiordev.Gestion_des_Rendezvous.models.Medecin;
 import com.thiordev.Gestion_des_Rendezvous.models.Patient;
 import com.thiordev.Gestion_des_Rendezvous.models.RendezVous;
-import org.mapstruct.*;
-
-import java.util.List;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface RendezVousMapper {

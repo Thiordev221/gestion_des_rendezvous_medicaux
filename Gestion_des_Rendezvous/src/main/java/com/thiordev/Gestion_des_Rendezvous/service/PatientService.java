@@ -1,9 +1,9 @@
 package com.thiordev.Gestion_des_Rendezvous.service;
 
+import java.util.List;
+
 import com.thiordev.Gestion_des_Rendezvous.dto.request.PatientRequestDto;
 import com.thiordev.Gestion_des_Rendezvous.dto.response.PatientResponseDto;
-
-import java.util.List;
 
 /**
  * Interface de service pour la gestion des patients

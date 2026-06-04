@@ -1,14 +1,15 @@
 package com.thiordev.Gestion_des_Rendezvous.mapper;
 
+import java.util.List;
+
 import com.thiordev.Gestion_des_Rendezvous.dto.request.MedecinRequestDto;
 import com.thiordev.Gestion_des_Rendezvous.dto.response.MedecinResponseDto;
 import com.thiordev.Gestion_des_Rendezvous.models.Medecin;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.ReportingPolicy;
-
-import java.util.List;
 
 @Mapper(componentModel = "spring", unmappedTargetPolicy = ReportingPolicy.IGNORE)
 public interface MedecinMapper {

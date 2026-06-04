@@ -1,5 +1,10 @@
 package com.thiordev.Gestion_des_Rendezvous.service;
 
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.thiordev.Gestion_des_Rendezvous.dto.request.MedecinRequestDto;
 import com.thiordev.Gestion_des_Rendezvous.dto.response.MedecinResponseDto;
 import com.thiordev.Gestion_des_Rendezvous.exception.ConflictException;
@@ -8,13 +13,9 @@ import com.thiordev.Gestion_des_Rendezvous.mapper.MedecinMapper;
 import com.thiordev.Gestion_des_Rendezvous.models.Medecin;
 import com.thiordev.Gestion_des_Rendezvous.models.Specialite;
 import com.thiordev.Gestion_des_Rendezvous.repositories.MedecinRepository;
-import org.springframework.transaction.annotation.Transactional;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
